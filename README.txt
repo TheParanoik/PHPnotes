@@ -1,7 +1,6 @@
 #   Coded by Marcel Pewny   #
-#            ***            #
 #	https://github.com/MPewny #
-#	                          #
+*****************************
 usage:
  On XAMPP:
    [phpnotes path]/phpnotes.php?<atribute>=<value>
