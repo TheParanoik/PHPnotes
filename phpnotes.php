@@ -76,10 +76,7 @@ if(isset($_POST['formsent'])){
   if(isset($_POST['t']) && !empty($_POST['t'])){
     $title = $_POST['t'];
 		if($title == "title" ){
-		 $number = rand(2, 256);
-		 $number = $number.rand(32, 512);
-		 $number = md5($number);
-		 $title= "phpnote".$number;
+		 $title = title();
 		}
 	}else{
    echo "<script>alert('error: no document title');</script>";
