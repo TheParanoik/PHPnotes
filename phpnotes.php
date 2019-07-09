@@ -1,5 +1,4 @@
 <?php
-
 /****************************************************************
   Coded by Marcel Pewny
 	
@@ -11,37 +10,38 @@
 	 
 	READ README.txt BEFORE USING THIS SCRIPT!
 ****************************************************************/
+function get_gui($gui){
+   if(isset($gui)){
+	   if($gui == ""){
+		   return true;
+		 }elseif($gui == true || $gui == "on" || $gui == "yes"){
+		   return true;
+		 }elseif($gui == false || $gui == "off" || $gui == 0){
+		   return false;
+		 }else{
+			 return false;
+		 }
+}
+function check_gui(){
+   if(get_gui($_GET['gui'])){
+	  return true;
+	 }elseif(get_gui($_GET['g'])){
+	 return true;
+	 }elseif(get_gui($_GET['interface'])){
+	 return true;
+	 }
+}
+function title(){
+	 $number = rand(2, 256);
+	 $number = $number.rand(32, 512);
+	 $number = md5($number);
+	 $title= "phpnote".$number;
+	 return $title;
+}
 
 //check gui - START
 if(isset($_GET['gui']) || isset($_GET['g']) || isset($_GET['interface'])){
-   if(isset($_GET['gui'])){
-	   $gui = $_GET['gui'];
-	   if($gui == ""){
-		   $gui = true;
-		 }elseif($gui == true || $gui == "on" || $gui == "yes"){
-		   $gui = true;
-		 }elseif($gui == false || $gui == "off" || $gui == 0){
-		   $gui = false;
-		 }
-	}elseif(isset($_GET['g'])){
-	   $gui = $_GET['g'];
-	   if(empty($gui)){
-		   $gui = true;
-		 }elseif($gui == true || $gui == "on" || $gui == "yes"){
-		   $gui = true;
-		 }elseif($gui == false || $gui == "off" || $gui == 0){
-		   $gui = false;
-		 }
-	 }elseif(isset($_GET['interface'])){
-	   $gui = $_GET['gui'];
-	   if(empty($gui)){
-		   $gui = true;
-		 }elseif($gui == true || $gui == "on" || $gui == "yes"){
-		   $gui = true;
-		 }elseif($gui == false || $gui == "off" || $gui == 0 || $gui =="no"){
-		   $gui = false;
-		 }
-	 }
+ $gui = check_gui();
 }else{
 $gui = false;
 }
@@ -52,18 +52,10 @@ if(!$gui){
  if(isset($_GET['t'])){
    $title = $_GET['t'];
 	 		if($title == "title" || $title == "" || $title == "phpnote"){
-		 $number = rand(2, 256);
-		 $number = $number.rand(32, 512);
-		 $number = md5($number);
-		 $title= "phpnote".$number;
+       $title = title();
 		}
   }else{
-  $number = rand(2, 256);
-		 $number = $number.rand(32, 512);
-		 $number = $number.rand(0, 20);
-		 $number = $number.rand(0, 20);
-		 $number = md5($number);
-		 $title= "phpnote".$number;
+	 $title = title();
   }
   if(isset($_GET['type'])){
    $doctype = $_GET['type'];
@@ -136,15 +128,15 @@ if($gui){
 			  <div class="usermenu">
 				 <input type="text" class="meta" name="t" value="title"><br><br><br>
 				   <select name="type" class="meta">
-            <option value="txt">Text File</option>
-            <option value="html">HTML</option>
-						<option value="php">PHP</option>
-						<option value="sql">SQL file</option>
-						<option value="js">JavaScript</option>
-						<option value="url">Internet Shortcut</option>
-						<option value="bat">Batch</option>
-						<option value="sh">Bash</option>
-           </select><br><br><br>
+           				<option value="txt">Text File</option>
+            				<option value="html">HTML</option>
+					<option value="php">PHP</option>
+					<option value="sql">SQL file</option>
+					<option value="js">JavaScript</option>
+					<option value="url">Internet Shortcut</option>
+					<option value="bat">Batch</option>
+					<option value="sh">Bash</option>
+      				    </select><br><br><br>
 				 <input type="hidden" name="formsent" value="1">
 				 <input type="submit" class="submit" value="create">
 				 <a href="https://github.com/MPewny">Github</a> | <a href="">Help</a>
