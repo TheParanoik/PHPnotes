@@ -109,9 +109,7 @@ echo "<script>alert('file has not been created!');</script>";
 
 // User Grafic Interface - START
 if($gui){
-?>
-
-<?php
+require_once('interface.html')
 }
 //User Grafic Interface - END
 ?>
