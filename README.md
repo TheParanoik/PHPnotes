@@ -9,12 +9,12 @@ usage:
    
 | Atribute | Discription | Variable Type | Required | Can be empty | Default|Optional|
 |----------|-------------|---------------|-----|---|---|---|
-| gui|starts or disable grafic interface|bool|not required|can be empty)
-|g |starts or disable grafic interface|bool|not required|can be empty
-|interface|starts or disable grafic interface|bool|not required|can be empty
-|x | note content |string|required|can't be empty|
-|t | note title |string|not required|can't be empty|
-|type |file type |string|not required|can be empty|txt - saves file as Text File|html / htm -  HTML File; js - JavaScript; url - Internet Shortcut File; bat -Batch File; sh - Bash File|
+| gui|starts or disable grafic interface|bool|not required|can be empty|true|false;0|
+|g |starts or disable grafic interface|bool|not required|can be empty|
+|interface|starts or disable grafic interface|bool|not required|can be empty|
+|x | note content |string|required|can't be empty| none |
+|t | note title |string|not required|can't be empty| generated title
+|type |file type |string|not required|can be empty|txt|html; js; url (Internet Shortcut); bat; sh|
 
           
           
