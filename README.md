@@ -1,25 +1,12 @@
-#   Coded by Marcel Pewny   
- https://github.com/MPewny 
+#   PHPnotes  
+ https://github.com/TheParanoik
 
-usage:
+## usage:
 
- On XAMPP:
+ **Localhost**
  
    `[phpnotes path]/phpnotes.php?<atribute>=<value> `
-   
-| Atribute | Discription | Variable Type | Required | Can be empty | Default|Optional|
-|----------|-------------|---------------|-----|---|---|---|
-| gui|starts or disable grafic interface|bool|not required|can be empty|true|false;0|
-|g |starts or disable grafic interface|bool|not required|can be empty|
-|interface|starts or disable grafic interface|bool|not required|can be empty|
-|x | note content |string|required|can't be empty| none |
-|t | note title |string|not required|can't be empty| generated title
-|type |file type |string|not required|can be empty|txt|html; js; url (Internet Shortcut); bat; sh|
 
-          
-          
-          
-          
   1) directly in localhost:
       save phpnotes.php as "index.php" in htdocs folder
       usage:
@@ -28,7 +15,25 @@ usage:
       unzip downloaded files to htdocs
       usage:
         localhost/PHPnotes/PHPnotes.php?<atributes>
-Security:
+ 
+ **Bookmarks**
+ 
+ * Create new bookmark in your browser
+ * Set keyword
+ * Set URL to `[phpnotes path]/phpnotes.php?<atribute>=%s&<atribute>=%s&... `
+ * Set separator
+
+   ## Options  
+| Atribute | Discription | Variable Type | Required | Can be empty | Default|Optional|
+|----------|-------------|---------------|-----|---|---|---|
+| gui|starts or disable grafic interface|bool|not required| yes |true|false;0|
+|g |starts or disable grafic interface|bool|not required| yes |
+|interface|starts or disable grafic interface|bool|not required| yes |
+|x | note content |string|required| no | none |
+|t | note title |string|not required| no | generated title
+|type |file type |string|not required| yes |txt|html; js; url (Internet Shortcut); bat; sh|
+
+## Security
  Don't use it on online hosting.
  Otherwise someone can encode a shell script or backdoor to Your website/server
  Every time you make a note with phpnotes online
