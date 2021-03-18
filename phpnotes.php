@@ -10,27 +10,15 @@
 	 
 	READ README.txt BEFORE USING THIS SCRIPT!
 ****************************************************************/
-function get_gui($gui){
-   if(isset($gui)){
-	   if($gui == ""){
-		   return true;
-		 }elseif($gui == true || $gui == "on" || $gui == "yes"){
-		   return true;
-		 }elseif($gui == false || $gui == "off" || $gui == 0){
-		   return false;
-		 }else{
-			 return false;
-		 }
+function get_gui($gui) {
+	if ($gui == "" || $gui == true || $gui == "on" || $gui == "yes" ) return true;
+	else return false;
 }
 function check_gui(){
-   if(get_gui($_GET['gui'])){
-	  return true;
-	 }elseif(get_gui($_GET['g'])){
-	 return true;
-	 }elseif(get_gui($_GET['interface'])){
-	 return true;
-	 }
+	if (get_gui($_GET['gui']) || get_gui($_GET['g']) || get_gui($_GET['interface'])) return true;
+	else return false;
 }
+
 function title(){
 	 $number = rand(2, 256);
 	 $number = $number.rand(32, 512);
@@ -40,21 +28,18 @@ function title(){
 }
 
 //check gui - START
-if(isset($_GET['gui']) || isset($_GET['g']) || isset($_GET['interface'])){
- $gui = check_gui();
-}else{
-$gui = false;
-}
+if(isset($_GET['gui']) || isset($_GET['g']) || isset($_GET['interface'])) $gui = check_gui();
+else $gui = false;
 //check gui - END
 //no gui get data- START
 if(!$gui){
 
  if(isset($_GET['t'])){
-   $title = $_GET['t'];
-	 		if($title == "title" || $title == "" || $title == "phpnote"){
-       $title = title();
-		}
-  }else{
+  	$title = $_GET['t'];
+	if($title == "title" || $title == "" || $title == "phpnote"){
+		$title = title();
+	}
+  } else {
 	 $title = title();
   }
   if(isset($_GET['type'])){
