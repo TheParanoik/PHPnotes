@@ -10,6 +10,12 @@
 	 
 	READ README.txt BEFORE USING THIS SCRIPT!
 ****************************************************************/
+$allow_doctype [
+  "txt",
+# "md",
+# "html"
+];
+
 function get_gui($gui){
    if(isset($gui)){
 	   if($gui == ""){
@@ -57,7 +63,7 @@ if(!$gui){
   }else{
 	 $title = title();
   }
-  if(isset($_GET['type'])){
+  if(isset($_GET['type']) && in_array($_GET['type'],$allow_doctype)){
    $doctype = $_GET['type'];
   }else{
    $doctype = "txt";
