@@ -38,9 +38,8 @@ function check_gui(){
 	 }
 }
 function title(){
-	 $number = rand(2, 256);
-	 $number = $number.rand(32, 512);
-	 $number = md5($number);
+	 $number = random_bytes(256);
+	 $number = bin2hex($number);
 	 $title= "phpnote".$number;
 	 return $title;
 }
